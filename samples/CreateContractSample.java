@@ -117,7 +117,7 @@ public class CreateContractSample extends ConfConexionPrivada {
         byte[] contractAddresss = receipt.getTransaction().getContractAddress();
         
         ProgramResult rs = ethereum.callConstantFunction(Hex.toHexString(contractAddresss),contract.getByName("get"));
-        Object[] rets = contract.getByName("get").decodeResult(r.getHReturn());
+        Object[] rets = contract.getByName("get").decodeResult(rs.getHReturn());
         logger.info("Current contract data member value: " + rets[0]);
         
         logger.info("Contract modified!");
